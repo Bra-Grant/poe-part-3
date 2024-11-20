@@ -172,7 +172,8 @@ public class Task {
     } JOptionPane.showMessageDialog(null, "Task not found", "Error", JOptionPane.ERROR_MESSAGE); 
     }
 
-public static void searchTasksByDeveloper(String developer) {
+//Method to search for tasks assigned to a developer and display their names and statuses
+    public static void searchTasksByDeveloper(String developer) {
     StringBuilder tasks = new StringBuilder
         ("Tasks for Developer " + developer + ":\n"); 
     for (int i = 0; i < developerNames.size(); i++) { 
@@ -182,5 +183,14 @@ public static void searchTasksByDeveloper(String developer) {
     } JOptionPane.showMessageDialog(null, tasks.toString(), "Tasks Found", JOptionPane.INFORMATION_MESSAGE);
 }    
   
+    //Method to delete a task by name
+    public static void deleteTaskByName(String taskName) { 
+        for (int i = 0; i < taskNames.size(); i++) { 
+            if (taskNames.get(i).equalsIgnoreCase(taskName)) { 
+                developerNames.remove(i); taskNames.remove(i); taskIDs.remove(i); taskDurations.remove(i); taskStatuses.remove(i); JOptionPane.showMessageDialog(null, "Task deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE); 
+                return; 
+            } 
+        } JOptionPane.showMessageDialog(null, "Task not found", "Error", JOptionPane.ERROR_MESSAGE); 
+    }
 
 }
