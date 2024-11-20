@@ -34,7 +34,7 @@ public class Poe {
             int option = Integer.parseInt(inputOption);
 
             switch (option) {
-                case 1: // Register info
+                case 1: // Register info.
                    firstname = JOptionPane.showInputDialog("Enter first name:");
                     lastname = JOptionPane.showInputDialog("Enter last name:");
                     username = JOptionPane.showInputDialog("Create a username:");

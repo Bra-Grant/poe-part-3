@@ -29,7 +29,7 @@ public class Task {
     static List<Integer> taskDurations = new ArrayList<>(); 
     static List<String> taskStatuses = new ArrayList<>();
     
-    //constructor to initialize task details
+    //constructor to initialize task details.
     public Task(String taskName, int taskNumber, String taskDescription, String developerDetails, int taskDuration, String taskStatus) {
         
         // Validate the task description

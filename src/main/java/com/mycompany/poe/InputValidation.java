@@ -39,7 +39,7 @@ public class InputValidation {
         return "Registration successful!";
     }
     
-// Method to handle login
+// Method to handle login.
    public boolean login(String loginUsername, String loginPassword, String correctUsername, String correctPassword, String firstName, String lastName) {
         boolean loginSuccess = loginUsername.equals(correctUsername) && loginPassword.equals(correctPassword);
         String message = returnLoginStatus(loginSuccess, firstName, lastName);
