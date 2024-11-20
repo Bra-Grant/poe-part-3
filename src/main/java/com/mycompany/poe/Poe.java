@@ -84,24 +84,27 @@ public class Poe {
                             + "8. Display Total Task Hours\n"
                             + "9. Exit Task Menu";
              
-             String inputOption = JOptionPane.showInputDialog(taskMenu);
+              String inputOption = JOptionPane.showInputDialog(taskMenu);
+            if (!isNumeric(inputOption)) {
+                JOptionPane.showMessageDialog(null, "Invalid input. Please enter a number between 1 and 9.");
+                continue;
+            }
+
             int option = Integer.parseInt(inputOption);
              
-switch (option) {
+ switch (option) {
                 case 1:
                     addTask();
                     break;
                 case 2:
-                    JOptionPane.showMessageDialog(null, "Coming Soon");
-                    return;
-                case 3:
                     viewTasks();
-                    return;
-                case 4:
-                    JOptionPane.showMessageDialog(null, "Exiting...");
                     break;
+                case 3:
+                    JOptionPane.showMessageDialog(null, "Exiting Task Menu...");
+                    return;
+
                 default:
-                    JOptionPane.showMessageDialog(null, "Invalid option.");
+                    JOptionPane.showMessageDialog(null, "Invalid option. Please select a valid option (1-3).");
             }
         }
     }
