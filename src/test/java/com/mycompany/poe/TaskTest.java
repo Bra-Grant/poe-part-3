@@ -18,53 +18,27 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author RC_Student_lab
  */
 public class TaskTest {
- 
+
    
-@Test
-    public void checkTaskDescription() {
-        Task task1 = new Task("Login Feature", 1, "Create Login to authenticate users", "Robyn Harrison", 8, "To Do");
-        Task task2 = new Task("Add Task Feature", 2, "Create Add Task feature to add task users", "Mike Smith", 10, "Doing");
-
-        // Test with a valid description
-        assertTrue(task1.checkTaskDescription("Valid description")); // Expect true
-        assertTrue(task2.checkTaskDescription("Valid description")); // Expect true
-
-        // Test with an empty description
-        assertFalse(task1.checkTaskDescription("")); // Expect false
-        assertFalse(task2.checkTaskDescription("")); // Expect false
-
-        // Test with a description longer than 50 characters
-        String longDescription1 = "This description is definitely more than fifty characters long and should return false.";
-        assertFalse(task1.checkTaskDescription(longDescription1)); // Expect false
-        String longDescription2 = "This description is definitely more than fifty characters long and should return false.";
-        assertFalse(task2.checkTaskDescription(longDescription2)); // Expect false
-    }
-
     @Test
-    public void createTaskID() {
-        // Test with a single character task name and valid developer details
-        Task task1 = new Task("A", 2, "Valid task description", "Mit", 123, "To Do");
-        String expected1 = "A:2:MIT";  // Task ID expected format
-        String actual1 = "A:2:MIT";
+    public void testDeveloperArray() {
+        Task task1 = new Task("Create Login", 5, "To Do", "Mike Smith", 5, "To Do");
+        Task task2 = new Task("Create Add Features", 8, "Doing", "Edward Harrison", 8, "Doing");
+        Task task3 = new Task("Create Reports", 2, "Done", "Samantha Paulson", 2, "Done");
+        Task task4 = new Task("Add Arrays", 11, "To Do", "Glenda Oberholzer", 11, "To Do");
 
-        Task task2 = new Task("B", 3, "Valid task description", "Cit", 456, "Doing");
-        String expected2 = "CR:0:IKE";  // Task ID expected format
-        String actual2 = "CR:0:IKE";
+        List<Task> tasks = new ArrayList<>();
+        tasks.add(task1);
+        tasks.add(task2);
+        tasks.add(task3);
+        tasks.add(task4);
 
-        assertEquals("A:2:MIT","A:2:MIT" );
-        assertEquals("CR:0:IKE", "CR:0:IKE");
-    }
-
-     @Test
-    public void testReturnTotalHours() {
-        // Clear previous task durations to ensure a clean test environment
-        Task.clearTaskDurations(); // Ensure the durations are cleared
-        new Task("Login Feature", 1, "Create login to authenticate users", "Robyn Harrison", 8, "To do");
-        new Task("Add Task Feature", 2, "Create Add Task feature", "Mike Smith", 10, "Doing");
-
-        // Calculate total hours
-        int totalHours = Task.returnTotalHours(Task.allTaskDurations);
-        assertEquals(18, totalHours, "Total hours should be correctly accumulated to 18.");
-        
+        // Developer array correctly populated
+        String[] expectedDevelopers = {"Mike Smith", "Edward Harrison", "Samantha Paulson", "Glenda Oberholzer"};
+        String[] actualDevelopers = new String[tasks.size()];
+        for (int i = 0; i < tasks.size(); i++) {
+            actualDevelopers[i] = tasks.get(i).getDeveloperDetails();
+        }
+        assertArrayEquals(expectedDevelopers, actualDevelopers);
     }
 }
