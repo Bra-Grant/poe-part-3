@@ -55,12 +55,12 @@ public class Poe {
                     checkAll.login(loginUsername, loginPassword, username, password, firstname, lastname);
                     break;
                 
-                case 3: // Exit
+                case 3: // task menu
                     taskMenu();
                     break;
                     
-                case 4:
-                    JOptionPane.showMessageDialog(null, "Exiting...");
+                case 4://exit program
+                    JOptionPane.showMessageDialog(null, "Exiting the program...");
                     return;
                     
                 default:
@@ -73,11 +73,16 @@ public class Poe {
     private static void taskMenu() {
         
         while (true) {
-             String taskMenu = "Task Menu:\n"
+            String taskMenu = "Task Menu:\n"
                             + "1. Add Task\n"
-                            + "2. Show Report\n"
-                            + "3. View Tasks\n"
-                            + "4. Exit Task Menu";
+                            + "2. View Tasks\n"
+                            + "3. Show Completed Tasks\n"
+                            + "4. View Longest Task\n"
+                            + "5. Search Tasks by Name\n"
+                            + "6. Search Tasks by Developer\n"
+                            + "7. Delete Task by Name\n"
+                            + "8. Display Total Task Hours\n"
+                            + "9. Exit Task Menu";
              
              String inputOption = JOptionPane.showInputDialog(taskMenu);
             int option = Integer.parseInt(inputOption);
