@@ -99,11 +99,31 @@ public class Poe {
                     viewTasks();
                     break;
                 case 3:
+                    Task.displayCompletedTasks();
+                    break;
+                case 4:
+                    Task.displayLongestTask();
+                    break;
+                case 5:
+                    String taskName = JOptionPane.showInputDialog("Enter task name to search:");
+                    Task.searchTaskByName(taskName);
+                    break;
+                case 6:
+                    String developer = JOptionPane.showInputDialog("Enter developer name to search tasks:");
+                    Task.searchTasksByDeveloper(developer);
+                    break;
+                case 7:
+                    String deleteTaskName = JOptionPane.showInputDialog("Enter task name to delete:");
+                    Task.deleteTaskByName(deleteTaskName);
+                    break;
+                case 8:
+                    Task.displayAllTasksReport();
+                    break;
+                case 9:
                     JOptionPane.showMessageDialog(null, "Exiting Task Menu...");
                     return;
-
                 default:
-                    JOptionPane.showMessageDialog(null, "Invalid option. Please select a valid option (1-3).");
+                    JOptionPane.showMessageDialog(null, "Invalid option. Please select a valid option (1-9).");
             }
         }
     }
