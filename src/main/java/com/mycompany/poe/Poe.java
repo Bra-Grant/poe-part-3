@@ -112,9 +112,14 @@ public class Poe {
 // Method to add tasks
     private static void addTask() {
         String numTasksStr = JOptionPane.showInputDialog("How many tasks would you like to add?");
+        if (!isNumeric(numTasksStr) || Integer.parseInt(numTasksStr) <= 0) {
+            JOptionPane.showMessageDialog(null, "Invalid input. Please enter a positive number.");
+            return;
+        }
+
         int numTasks = Integer.parseInt(numTasksStr);
-        
-for (int i = 0; i < numTasks; i++) {
+
+        for (int i = 0; i < numTasks; i++) {
             String taskName = JOptionPane.showInputDialog("Enter task name:");
             String taskDescription = JOptionPane.showInputDialog("Enter task description (Max 50 characters):");
 
@@ -123,9 +128,16 @@ for (int i = 0; i < numTasks; i++) {
                 taskDescription = JOptionPane.showInputDialog("Please enter a task description of less than 50 characters:");
             }
             
-String developerDetails = JOptionPane.showInputDialog("Enter developer name:");
+ String developerDetails = JOptionPane.showInputDialog("Enter developer name:");
             String taskDurationStr = JOptionPane.showInputDialog("Enter task duration (in hours):");
+
+            if (!isNumeric(taskDurationStr) || Integer.parseInt(taskDurationStr) <= 0) {
+                JOptionPane.showMessageDialog(null, "Invalid task duration. Please enter a positive number.");
+                return;
+            }
+
             int taskDuration = Integer.parseInt(taskDurationStr);
+
             
 // Generate Task ID in the required format
         String taskID = taskName.substring(0, 2).toUpperCase() + ":" 
@@ -152,7 +164,7 @@ String developerDetails = JOptionPane.showInputDialog("Enter developer name:");
         if (tasks.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No tasks available.");
         } else {
-            StringBuilder taskList = new StringBuilder();
+            StringBuilder taskList = new StringBuilder("all tasks:\n");
             for (Task task : tasks) {
                 taskList.append("Task ID: ").append(task.getTaskID()).append("\n")
                         .append("Task Name: ").append(task.getTaskName()).append("\n")
@@ -163,5 +175,18 @@ String developerDetails = JOptionPane.showInputDialog("Enter developer name:");
             }
             JOptionPane.showMessageDialog(null, taskList.toString());
         }
+    }
+    
+     // Method to check if a string is numeric
+    private static boolean isNumeric(String str) {
+        if (str == null || str.isEmpty()) {
+            return false;
+        }
+        for (char c : str.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
