@@ -23,11 +23,11 @@ public class Task {
     private String taskStatus;
     
     // Static lists to keep track of task details.
-    static List<String> developerNames = new ArrayList<>(); 
-    static List<String> taskNames = new ArrayList<>(); 
-    static List<String> taskIDs = new ArrayList<>(); 
-    static List<Integer> taskDurations = new ArrayList<>(); 
-    static List<String> taskStatuses = new ArrayList<>();
+    private static List<String> developerNames = new ArrayList<>(); 
+    private static List<String> taskNames = new ArrayList<>(); 
+    private static List<String> taskIDs = new ArrayList<>(); 
+    private static List<Integer> taskDurations = new ArrayList<>(); 
+    private static List<String> taskStatuses = new ArrayList<>();
     
     //constructor to initialize task details.
     public Task(String taskName, int taskNumber, String taskDescription, String developerDetails, int taskDuration, String taskStatus) {
@@ -149,8 +149,8 @@ public class Task {
     /** * Method to display the Developer, Task Names, and Task Duration for tasks with the status "done". */
     public static void displayCompletedTasks() { 
         StringBuilder completedTasks = new StringBuilder("Completed Tasks:\n"); 
-    for (int i = 0; i < taskStatuses.size(); i++) 
-    { if ("done".equalsIgnoreCase(taskStatuses.get(i))) 
+    for (int i = 0; i < taskStatuses.size(); i++) { 
+        if ("done".equalsIgnoreCase(taskStatuses.get(i))) 
     { completedTasks.append("Developer: ").append(developerNames.get(i)) .append(", Task Name: ").append(taskNames.get(i)) .append(", Duration: ").append(taskDurations.get(i)) .append(" hours\n"); 
     } } JOptionPane.showMessageDialog(null, completedTasks.toString(), "Completed Tasks", JOptionPane.INFORMATION_MESSAGE); }
 

@@ -70,20 +70,19 @@ public class Poe {
     }
     
 // Placeholder for task menu
-    private static void taskMenu() {
-        
+        private static void taskMenu() {
         while (true) {
             String taskMenu = "Task Menu:\n"
                             + "1. Add Task\n"
                             + "2. View Tasks\n"
-                            + "3. Show Completed Tasks\n"
-                            + "4. View Longest Task\n"
-                            + "5. Search Tasks by Name\n"
+                            + "3. Display Completed Tasks\n"
+                            + "4. Display Longest Task\n"
+                            + "5. Search Task by Name\n"
                             + "6. Search Tasks by Developer\n"
-                            + "7. Delete Task by Name\n"
-                            + "8. Display Total Task Hours\n"
+                            + "7. Delete Task\n"
+                            + "8. Display Task Report\n"
                             + "9. Exit Task Menu";
-             
+            
               String inputOption = JOptionPane.showInputDialog(taskMenu);
             if (!isNumeric(inputOption)) {
                 JOptionPane.showMessageDialog(null, "Invalid input. Please enter a number between 1 and 9.");
