@@ -163,12 +163,24 @@ public class Task {
     }
     
     /** * Method to search for a task by name and display its details. */ 
-    public static void searchTaskByName(String taskName) { for (int i = 0; i < taskNames.size(); i++) { 
+    public static void searchTaskByName(String taskName) { 
+        for (int i = 0; i < taskNames.size(); i++) { 
         if (taskNames.get(i).equalsIgnoreCase(taskName)) { 
             JOptionPane.showMessageDialog(null, "Task Name: " + taskNames.get(i) + "\nDeveloper: " + developerNames.get(i) + 
                     "\nTask Status: " + taskStatuses.get(i), "Task Found", JOptionPane.INFORMATION_MESSAGE); return; 
         } 
     } JOptionPane.showMessageDialog(null, "Task not found", "Error", JOptionPane.ERROR_MESSAGE); 
     }
+
+public static void searchTasksByDeveloper(String developer) {
+    StringBuilder tasks = new StringBuilder
+        ("Tasks for Developer " + developer + ":\n"); 
+    for (int i = 0; i < developerNames.size(); i++) { 
+        if (developerNames.get(i).equalsIgnoreCase(developer)) { 
+            tasks.append("Task Name: ").append(taskNames.get(i)) .append(", Task Status: ").append(taskStatuses.get(i)) .append("\n"); 
+        } 
+    } JOptionPane.showMessageDialog(null, tasks.toString(), "Tasks Found", JOptionPane.INFORMATION_MESSAGE);
+}    
+  
 
 }
