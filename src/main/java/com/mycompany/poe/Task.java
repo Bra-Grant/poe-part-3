@@ -162,6 +162,13 @@ public class Task {
         JOptionPane.showMessageDialog(null, "Developer: " + developerNames.get(longestIndex) + ", Duration: " + taskDurations.get(longestIndex) + " hours", "Longest Task", JOptionPane.INFORMATION_MESSAGE);
     }
     
-    
+    /** * Method to search for a task by name and display its details. */ 
+    public static void searchTaskByName(String taskName) { for (int i = 0; i < taskNames.size(); i++) { 
+        if (taskNames.get(i).equalsIgnoreCase(taskName)) { 
+            JOptionPane.showMessageDialog(null, "Task Name: " + taskNames.get(i) + "\nDeveloper: " + developerNames.get(i) + 
+                    "\nTask Status: " + taskStatuses.get(i), "Task Found", JOptionPane.INFORMATION_MESSAGE); return; 
+        } 
+    } JOptionPane.showMessageDialog(null, "Task not found", "Error", JOptionPane.ERROR_MESSAGE); 
+    }
 
 }
