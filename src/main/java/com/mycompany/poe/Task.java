@@ -145,4 +145,13 @@ public class Task {
         public allTaskDurations() {
         }
     }
+    
+    /** * Method to display the Developer, Task Names, and Task Duration for tasks with the status "done". */
+    public static void displayCompletedTasks() 
+    { StringBuilder completedTasks = new StringBuilder("Completed Tasks:\n"); 
+    for (int i = 0; i < taskStatuses.size(); i++) 
+    { if ("done".equalsIgnoreCase(taskStatuses.get(i))) 
+    { completedTasks.append("Developer: ").append(developerNames.get(i)) .append(", Task Name: ").append(taskNames.get(i)) .append(", Duration: ").append(taskDurations.get(i)) .append(" hours\n"); 
+    } } JOptionPane.showMessageDialog(null, completedTasks.toString(), "Completed Tasks", JOptionPane.INFORMATION_MESSAGE); }
+
 }
