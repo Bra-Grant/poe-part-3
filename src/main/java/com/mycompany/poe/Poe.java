@@ -30,7 +30,12 @@ public class Poe {
                         + "3. Tasks\n"
                         + "4. Exit";
             
-            String inputOption = JOptionPane.showInputDialog(menu);
+           String inputOption = JOptionPane.showInputDialog(menu);
+            if (!isNumeric(inputOption)) {
+                JOptionPane.showMessageDialog(null, "Invalid input. Please enter a number between 1 and 4.");
+                continue;
+            }
+
             int option = Integer.parseInt(inputOption);
 
             switch (option) {

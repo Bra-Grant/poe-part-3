@@ -158,7 +158,9 @@ public class Task {
     public static void displayLongestTask() { 
         int longestIndex = 0; 
         for (int i = 1; i < taskDurations.size(); i++) { 
-            if (taskDurations.get(i) > taskDurations.get(longestIndex)) { longestIndex = i; } }
+            if (taskDurations.get(i) > taskDurations.get(longestIndex)) { longestIndex = i; 
+            } 
+        }
         JOptionPane.showMessageDialog(null, "Developer: " + developerNames.get(longestIndex) + ", Duration: " + taskDurations.get(longestIndex) + " hours", "Longest Task", JOptionPane.INFORMATION_MESSAGE);
     }
     
@@ -167,7 +169,8 @@ public class Task {
         for (int i = 0; i < taskNames.size(); i++) { 
         if (taskNames.get(i).equalsIgnoreCase(taskName)) { 
             JOptionPane.showMessageDialog(null, "Task Name: " + taskNames.get(i) + "\nDeveloper: " + developerNames.get(i) + 
-                    "\nTask Status: " + taskStatuses.get(i), "Task Found", JOptionPane.INFORMATION_MESSAGE); return; 
+                    "\nTask Status: " + taskStatuses.get(i), "Task Found", JOptionPane.INFORMATION_MESSAGE); 
+            return; 
         } 
     } JOptionPane.showMessageDialog(null, "Task not found", "Error", JOptionPane.ERROR_MESSAGE); 
     }
@@ -187,7 +190,12 @@ public class Task {
     public static void deleteTaskByName(String taskName) { 
         for (int i = 0; i < taskNames.size(); i++) { 
             if (taskNames.get(i).equalsIgnoreCase(taskName)) { 
-                developerNames.remove(i); taskNames.remove(i); taskIDs.remove(i); taskDurations.remove(i); taskStatuses.remove(i); JOptionPane.showMessageDialog(null, "Task deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE); 
+                developerNames.remove(i);
+                taskNames.remove(i); 
+                taskIDs.remove(i); 
+                taskDurations.remove(i);
+                taskStatuses.remove(i); 
+                JOptionPane.showMessageDialog(null, "Task deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE); 
                 return; 
             } 
         } JOptionPane.showMessageDialog(null, "Task not found", "Error", JOptionPane.ERROR_MESSAGE); 
@@ -196,8 +204,12 @@ public class Task {
     //method to display a report with full details of all captured tasks
      public static void displayAllTasksReport() {
         StringBuilder report = new StringBuilder("All Captured Tasks:\n");
-        for (int i = 0; i < taskNames.size();
-                
-                
-
-    
+        for (int i = 0; i < taskNames.size(); i++) {
+             report.append("Task Name: ").append(taskNames.get(i))
+                  .append(", Developer: ").append(developerNames.get(i))
+                  .append(", Duration: ").append(taskDurations.get(i)).append(" hours")
+                  .append(", Status: ").append(taskStatuses.get(i)).append("\n");
+        }
+        JOptionPane.showMessageDialog(null, report.toString(), "Task Report", JOptionPane.INFORMATION_MESSAGE);
+    }
+}
