@@ -193,4 +193,11 @@ public class Task {
         } JOptionPane.showMessageDialog(null, "Task not found", "Error", JOptionPane.ERROR_MESSAGE); 
     }
 
-}
+    //method to display a report with full details of all captured tasks
+     public static void displayAllTasksReport() {
+        StringBuilder report = new StringBuilder("All Captured Tasks:\n");
+        for (int i = 0; i < taskNames.size();
+                
+                
+
+    
