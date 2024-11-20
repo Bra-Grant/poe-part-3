@@ -119,10 +119,8 @@ public class Task {
         return totalHours;
     }
 
-    // Method to clear all task durations
-    public static void clearTaskDurations() {
-        allTaskDurations.clear();
-    }
+    
+    
 
    // Method to display the total combined hours of all tasks using JOptionPane
     public static void displayTotalHours(List<Integer> taskDurations) {
@@ -136,15 +134,7 @@ public class Task {
         JOptionPane.showMessageDialog(null, getTaskDetails(), "Task Details", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    private static class allTaskDurations {
 
-        private static void clear() {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
-
-        public allTaskDurations() {
-        }
-    }
     
     /** * Method to display the Developer, Task Names, and Task Duration for tasks with the status "done". */
     public static void displayCompletedTasks() { 
@@ -198,7 +188,7 @@ public class Task {
                 JOptionPane.showMessageDialog(null, "Task deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE); 
                 return; 
             } 
-        } JOptionPane.showMessageDialog(null, "Task not found", "Error", JOptionPane.ERROR_MESSAGE); 
+        } JOptionPane.showMessageDialog(null, "Task not found"); 
     }
 
     //method to display a report with full details of all captured tasks
