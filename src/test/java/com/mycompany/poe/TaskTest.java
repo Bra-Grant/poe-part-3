@@ -132,6 +132,19 @@ void testSearchForTask() {
     
     assertEquals(expected, actual);
 }
+// Test: Search all tasks assigned to a Developer
+    @Test
+    void testSearchTasksByDeveloper() {
+        String developer = "Samantha Paulson";
+        StringBuilder expected = new StringBuilder("create reports");
+        StringBuilder actual = new StringBuilder();
+        for (int i = 0; i < developerNames.size(); i++) {
+            if (developerNames.get(i).equalsIgnoreCase(developer)) {
+                actual.append(taskNames.get(i));
+            }
+        }
+        assertEquals(expected.toString(), actual.toString());
+    }
 
     
 }
