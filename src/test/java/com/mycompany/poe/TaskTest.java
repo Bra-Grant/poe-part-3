@@ -134,17 +134,27 @@ void testSearchForTask() {
 }
 // Test: Search all tasks assigned to a Developer
     @Test
-    void testSearchTasksByDeveloper() {
-        String developer = "Samantha Paulson";
-        StringBuilder expected = new StringBuilder("create reports");
-        StringBuilder actual = new StringBuilder();
-        for (int i = 0; i < developerNames.size(); i++) {
-            if (developerNames.get(i).equalsIgnoreCase(developer)) {
-                actual.append(taskNames.get(i));
-            }
+void testSearchTasksByDeveloper() {
+    // Define the developer and expected task details
+    String developer = "Samantha Paulson";
+    StringBuilder expected = new StringBuilder("create reports");
+    StringBuilder actual = new StringBuilder();
+
+    // Loop through the developer names and gather task names
+    for (int i = 0; i < developerNames.size(); i++) {
+        if (developerNames.get(i).equalsIgnoreCase(developer)) {
+            actual.append(taskNames.get(i));
+            // Print the developer and task being matched
+            System.out.println("Matching task: " + taskNames.get(i) + " ,for developer: " + developerNames.get(i));
         }
-        assertEquals(expected.toString(), actual.toString());
     }
+
+   
+
+    // Assert if the expected task names match the actual ones
+    assertEquals(expected.toString(), actual.toString());
+}
+
 
     
 }
