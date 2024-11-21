@@ -26,6 +26,15 @@ public class TaskTest {
     private static List<String> taskNames;
     private static List<Integer> taskDurations; 
     
+    @BeforeEach
+    void setUp() {
+        // Initialize the lists with test data
+        taskStatuses = new ArrayList<>();
+        developerNames = new ArrayList<>();
+        taskNames = new ArrayList<>();
+        taskDurations = new ArrayList<>();
+    }
+    
     @Test
     public void testDeveloperArray() {
         Task task1 = new Task("Create Login", 5, "To Do", "Mike Smith", 5, "To Do");
