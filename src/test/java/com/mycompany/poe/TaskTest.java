@@ -155,6 +155,33 @@ void testSearchTasksByDeveloper() {
     assertEquals(expected.toString(), actual.toString());
 }
 
+// Test: Delete a task from the array
+@Test
+void testDeleteTask() {
+    String taskToDelete = "Create Reports";
+    int index = taskNames.indexOf(taskToDelete);
+
+    // Check if the task exists before deletion
+    System.out.println("Task to delete: " + taskToDelete);
+   
+
+    // Delete task data
+    if (index != -1) {
+        developerNames.remove(index);
+        taskNames.remove(index);
+        taskStatuses.remove(index);
+        taskDurations.remove(index);
+
+        // Print confirmation of deletion
+        System.out.println("Task deleted successfully: " + taskToDelete);
+    } else {
+        System.out.println("Task not found, nothing to delete.");
+    }
+
+    // Verify task is deleted
+    assertFalse(taskNames.contains(taskToDelete));
+    System.out.println("Task deletion verification: " + !taskNames.contains(taskToDelete));
+}
 
     
 }
