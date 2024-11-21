@@ -23,8 +23,8 @@ public class Task {
     private String taskStatus;
     
     // Static lists to keep track of task details.
-    private  static List<String> developerNames = new ArrayList<>(); 
-    private static List<String> taskNames = new ArrayList<>(); 
+    static List<String> developerNames = new ArrayList<>(); 
+    static List<String> taskNames = new ArrayList<>(); 
     private static List<String> taskIDs = new ArrayList<>(); 
     private  static List<Integer> taskDurations = new ArrayList<>(); 
     private  static List<String> taskStatuses = new ArrayList<>();

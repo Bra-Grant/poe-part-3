@@ -113,24 +113,25 @@ void testDisplayLongestTask() {
 }
 
 // Test: Search for a specific task
-    @Test
-    void testSearchForTask() {
-        
-        Task.clearStaticLists();
-        
-        // Initialize lists and add tasks.
-    List<String> taskNames = new ArrayList<>();
-    List<String> developerNames = new ArrayList<>();
+   @Test
+void testSearchForTask() {
     
-    taskNames.add("Create Login");
-    developerNames.add("Mike Smith");
+    Task.clearStaticLists();
+
+    
+    Task task = new Task("Create Login", 1, "Develop login page", "Mike Smith", 5, "To Do");
+
     
     String taskToSearch = "Create Login";
-    int index = taskNames.indexOf(taskToSearch);
+    Task.searchTaskByName(taskToSearch); 
+
+    
+    int index = Task.taskNames.indexOf(taskToSearch);
     String expected = "Mike Smith, Create Login";
-    String actual = developerNames.get(index) + ", " + taskNames.get(index);
+    String actual = Task.developerNames.get(index) + ", " + Task.taskNames.get(index);
     
     assertEquals(expected, actual);
 }
+
     
 }
