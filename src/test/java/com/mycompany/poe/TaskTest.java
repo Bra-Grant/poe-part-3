@@ -78,7 +78,7 @@ public class TaskTest {
         tasks.add(task3);
         tasks.add(task4);
 
-        // Developer array correctly populated
+        // Developer array correctly populated.
         String[] expectedDevelopers = {"Mike Smith", "Edward Harrison", "Samantha Paulson", "Glenda Oberholzer"};
         String[] actualDevelopers = new String[tasks.size()];
         for (int i = 0; i < tasks.size(); i++) {
