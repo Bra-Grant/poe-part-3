@@ -23,11 +23,11 @@ public class Task {
     private String taskStatus;
     
     // Static lists to keep track of task details.
-    private static List<String> developerNames = new ArrayList<>(); 
+    private  static List<String> developerNames = new ArrayList<>(); 
     private static List<String> taskNames = new ArrayList<>(); 
     private static List<String> taskIDs = new ArrayList<>(); 
-    private static List<Integer> taskDurations = new ArrayList<>(); 
-    private static List<String> taskStatuses = new ArrayList<>();
+    private  static List<Integer> taskDurations = new ArrayList<>(); 
+    private  static List<String> taskStatuses = new ArrayList<>();
     
     //constructor to initialize task details.
     public Task(String taskName, int taskNumber, String taskDescription, String developerDetails, int taskDuration, String taskStatus) {
@@ -202,4 +202,14 @@ public class Task {
         }
         JOptionPane.showMessageDialog(null, report.toString(), "Task Report", JOptionPane.INFORMATION_MESSAGE);
     }
+     
+     public static void clearStaticLists() {
+    developerNames.clear();
+    taskNames.clear();
+    taskIDs.clear();
+    taskDurations.clear();
+    taskStatuses.clear();
+}
+
+     
 }

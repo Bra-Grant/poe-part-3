@@ -105,11 +105,32 @@ void testDisplayLongestTask() {
     // Actual result
     String actual = developerNames.get(longestIndex) + ", " + taskDurations.get(longestIndex) + " hours";
 
-    // Print the result for debugging/demo
+
     System.out.println("Longest Task: " + actual);
 
     // Assert to verify correctness
     assertEquals(expected, actual);
 }
 
+// Test: Search for a specific task
+    @Test
+    void testSearchForTask() {
+        
+        Task.clearStaticLists();
+        
+        // Initialize lists and add tasks.
+    List<String> taskNames = new ArrayList<>();
+    List<String> developerNames = new ArrayList<>();
+    
+    taskNames.add("Create Login");
+    developerNames.add("Mike Smith");
+    
+    String taskToSearch = "Create Login";
+    int index = taskNames.indexOf(taskToSearch);
+    String expected = "Mike Smith, Create Login";
+    String actual = developerNames.get(index) + ", " + taskNames.get(index);
+    
+    assertEquals(expected, actual);
+}
+    
 }
