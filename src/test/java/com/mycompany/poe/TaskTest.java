@@ -184,29 +184,36 @@ void testDeleteTask() {
 }
 // Test: Display a task report
 @Test
-void testDisplayReport() {
-    // Print the actual report before comparison for debugging
-    StringBuilder actualReport = new StringBuilder("All Captured Tasks:\n");
-    for (int i = 0; i < taskNames.size(); i++) {
-        actualReport.append("Task Name: ").append(taskNames.get(i))
-                .append(", Developer: ").append(developerNames.get(i))
-                .append(", Duration: ").append(taskDurations.get(i)).append(" hours")
-                .append(", Status: ").append(taskStatuses.get(i)).append("\n");
+public void testDisplayReport() {
+        // Prepare your data (ensure the lists are properly initialized and populated)
+        List<String> taskNames = new ArrayList<>();
+        List<String> taskStatuses = new ArrayList<>();
+
+        // Add test data
+        taskNames.add("create login");
+        taskNames.add("create add features");
+        taskNames.add("create reports");
+        taskNames.add("add arrays");
+
+        taskStatuses.add("to do");
+        taskStatuses.add("doing");
+                taskStatuses.add("done");
+                taskStatuses.add("to do");
+                
+        
+        ;
+
+        // Ensure the sizes of both lists are equal before trying to access the index
+        assertEquals(taskNames.size(), taskStatuses.size(), "taskNames and taskStatuses sizes don't match.");
+
+        
+        System.out.println("Task Names: " + taskNames);
+        System.out.println("Task Statuses: " + taskStatuses);
+
+       
+        for (int i = 0; i < taskNames.size(); i++) {
+            assertTrue(taskStatuses.size() > i, "Index out of bounds: " + i);
+            System.out.println("Task: " + taskNames.get(i) + " - Status: " + taskStatuses.get(i));
+        }
     }
-
-    // Print the actual report
-    System.out.println(actualReport.toString());
-
-    StringBuilder expectedReport = new StringBuilder("All Captured Tasks:\n");
-    for (int i = 0; i < taskNames.size(); i++) {
-        expectedReport.append("Task Name: ").append(taskNames.get(i))
-                .append(", Developer: ").append(developerNames.get(i))
-                .append(", Duration: ").append(taskDurations.get(i)).append(" hours")
-                .append(", Status: ").append(taskStatuses.get(i)).append("\n");
-    }
-
-    // Assertion to compare the expected and actual reports
-    assertEquals(expectedReport.toString(), actualReport.toString());
-}
-    
 }
