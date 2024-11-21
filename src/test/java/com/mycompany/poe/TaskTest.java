@@ -60,8 +60,9 @@ public class TaskTest {
     //Developer Array is correctly populated
     @Test
     void testDeveloperArray(){
-        
-            System.out.println(developerNames);   
+         
+     System.out.println(developerNames);  
+            
         }
         
     @Test
@@ -85,4 +86,30 @@ public class TaskTest {
         }
         assertArrayEquals(expectedDevelopers, actualDevelopers);
     }
+    
+    // Test: Display Developer and Duration for task with longest duration
+    @Test
+void testDisplayLongestTask() {
+    int longestIndex = 0;
+
+    // Find the index of the longest task
+    for (int i = 1; i < taskDurations.size(); i++) {
+        if (taskDurations.get(i) > taskDurations.get(longestIndex)) {
+            longestIndex = i;
+        }
+    }
+
+    // Expected result
+    String expected = "Glenda Oberholzer, 11 hours";
+
+    // Actual result
+    String actual = developerNames.get(longestIndex) + ", " + taskDurations.get(longestIndex) + " hours";
+
+    // Print the result for debugging/demo
+    System.out.println("Longest Task: " + actual);
+
+    // Assert to verify correctness
+    assertEquals(expected, actual);
+}
+
 }
