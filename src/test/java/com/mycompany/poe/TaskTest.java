@@ -25,6 +25,7 @@ public class TaskTest {
     private static List<String> developerNames;
     private static List<String> taskNames;
     private static List<Integer> taskDurations; 
+    private static int taskCount;
     
     @BeforeEach
     void setUp() {
@@ -33,6 +34,7 @@ public class TaskTest {
         developerNames = new ArrayList<>();
         taskNames = new ArrayList<>();
         taskDurations = new ArrayList<>();
+        taskCount = 4;
     
     // Add sample data
         taskStatuses.add("doing");
@@ -55,8 +57,15 @@ public class TaskTest {
         taskDurations.add(11);
     }
     
+    //Developer Array is correctly populated
     @Test
-    public void testDeveloperArray() {
+    void testDeveloperArray(){
+        
+            System.out.println(developerNames);   
+        }
+        
+    @Test
+    public void testDeveloperArray1() {
         Task task1 = new Task("Create Login", 5, "To Do", "Mike Smith", 5, "To Do");
         Task task2 = new Task("Create Add Features", 8, "Doing", "Edward Harrison", 8, "Doing");
         Task task3 = new Task("Create Reports", 2, "Done", "Samantha Paulson", 2, "Done");
