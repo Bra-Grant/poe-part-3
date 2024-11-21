@@ -185,6 +185,12 @@ void testDeleteTask() {
 // Test: Display a task report
 @Test
 void testDisplayReport() {
+    // Print the sizes of the lists for debugging purposes
+    System.out.println("taskNames size: " + taskNames.size());
+    System.out.println("developerNames size: " + developerNames.size());
+    System.out.println("taskDurations size: " + taskDurations.size());
+    System.out.println("taskStatuses size: " + taskStatuses.size());
+
     StringBuilder expectedReport = new StringBuilder("All Captured Tasks:\n");
     for (int i = 0; i < taskNames.size(); i++) {
         expectedReport.append("Task Name: ").append(taskNames.get(i))
@@ -193,7 +199,8 @@ void testDisplayReport() {
                 .append(", Status: ").append(taskStatuses.get(i)).append("\n");
     }
 
-   
+    // Print expected report before comparison
+    System.out.println("Expected Report:\n" + expectedReport.toString());
 
     StringBuilder actualReport = new StringBuilder("All Captured Tasks:\n");
     for (int i = 0; i < taskNames.size(); i++) {
@@ -204,10 +211,9 @@ void testDisplayReport() {
     }
 
     // Print actual report before comparison
-    System.out.println(actualReport.toString());
+    System.out.println("Actual Report:\n" + actualReport.toString());
 
     assertEquals(expectedReport.toString(), actualReport.toString());
 }
-
     
 }
