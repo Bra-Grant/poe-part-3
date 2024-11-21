@@ -19,7 +19,13 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class TaskTest {
 
-   
+  
+    // Mock data
+    private static List<String> taskStatuses;
+    private static List<String> developerNames;
+    private static List<String> taskNames;
+    private static List<Integer> taskDurations; 
+    
     @Test
     public void testDeveloperArray() {
         Task task1 = new Task("Create Login", 5, "To Do", "Mike Smith", 5, "To Do");
