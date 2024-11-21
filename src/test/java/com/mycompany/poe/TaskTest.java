@@ -33,6 +33,26 @@ public class TaskTest {
         developerNames = new ArrayList<>();
         taskNames = new ArrayList<>();
         taskDurations = new ArrayList<>();
+    
+    // Add sample data
+        taskStatuses.add("doing");
+        taskStatuses.add("to do");
+        taskStatuses.add("done");
+
+        developerNames.add("Mike Smith");
+        developerNames.add("Edward Harrison");
+        developerNames.add("Samantha Paulson");
+        developerNames.add("Glenda Oberholzer");
+
+        taskNames.add("create login");
+        taskNames.add("create add features");
+        taskNames.add("create reports");
+        taskNames.add("add arrays");
+
+        taskDurations.add(5);
+        taskDurations.add(8);
+        taskDurations.add(2);
+        taskDurations.add(11);
     }
     
     @Test
