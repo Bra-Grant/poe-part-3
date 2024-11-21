@@ -182,6 +182,32 @@ void testDeleteTask() {
     assertFalse(taskNames.contains(taskToDelete));
     System.out.println("Task deletion verification: " + !taskNames.contains(taskToDelete));
 }
+// Test: Display a task report
+@Test
+void testDisplayReport() {
+    StringBuilder expectedReport = new StringBuilder("All Captured Tasks:\n");
+    for (int i = 0; i < taskNames.size(); i++) {
+        expectedReport.append("Task Name: ").append(taskNames.get(i))
+                .append(", Developer: ").append(developerNames.get(i))
+                .append(", Duration: ").append(taskDurations.get(i)).append(" hours")
+                .append(", Status: ").append(taskStatuses.get(i)).append("\n");
+    }
+
+   
+
+    StringBuilder actualReport = new StringBuilder("All Captured Tasks:\n");
+    for (int i = 0; i < taskNames.size(); i++) {
+        actualReport.append("Task Name: ").append(taskNames.get(i))
+                .append(", Developer: ").append(developerNames.get(i))
+                .append(", Duration: ").append(taskDurations.get(i)).append(" hours")
+                .append(", Status: ").append(taskStatuses.get(i)).append("\n");
+    }
+
+    // Print actual report before comparison
+    System.out.println(actualReport.toString());
+
+    assertEquals(expectedReport.toString(), actualReport.toString());
+}
 
     
 }
