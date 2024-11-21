@@ -185,11 +185,17 @@ void testDeleteTask() {
 // Test: Display a task report
 @Test
 void testDisplayReport() {
-    // Print the sizes of the lists for debugging purposes
-    System.out.println("taskNames size: " + taskNames.size());
-    System.out.println("developerNames size: " + developerNames.size());
-    System.out.println("taskDurations size: " + taskDurations.size());
-    System.out.println("taskStatuses size: " + taskStatuses.size());
+    // Print the actual report before comparison for debugging
+    StringBuilder actualReport = new StringBuilder("All Captured Tasks:\n");
+    for (int i = 0; i < taskNames.size(); i++) {
+        actualReport.append("Task Name: ").append(taskNames.get(i))
+                .append(", Developer: ").append(developerNames.get(i))
+                .append(", Duration: ").append(taskDurations.get(i)).append(" hours")
+                .append(", Status: ").append(taskStatuses.get(i)).append("\n");
+    }
+
+    // Print the actual report
+    System.out.println(actualReport.toString());
 
     StringBuilder expectedReport = new StringBuilder("All Captured Tasks:\n");
     for (int i = 0; i < taskNames.size(); i++) {
@@ -199,20 +205,7 @@ void testDisplayReport() {
                 .append(", Status: ").append(taskStatuses.get(i)).append("\n");
     }
 
-    // Print expected report before comparison
-    System.out.println("Expected Report:\n" + expectedReport.toString());
-
-    StringBuilder actualReport = new StringBuilder("All Captured Tasks:\n");
-    for (int i = 0; i < taskNames.size(); i++) {
-        actualReport.append("Task Name: ").append(taskNames.get(i))
-                .append(", Developer: ").append(developerNames.get(i))
-                .append(", Duration: ").append(taskDurations.get(i)).append(" hours")
-                .append(", Status: ").append(taskStatuses.get(i)).append("\n");
-    }
-
-    // Print actual report before comparison
-    System.out.println("Actual Report:\n" + actualReport.toString());
-
+    // Assertion to compare the expected and actual reports
     assertEquals(expectedReport.toString(), actualReport.toString());
 }
     
